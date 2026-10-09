@@ -1,0 +1,30 @@
+SACRED HEART COLLEGE - STUDENT MOVEMENT & GATE PASS SYSTEM
+Quick start (XAMPP)
+
+1. Copy the shc-gatepass folder into C:\xampp\htdocs\
+2. Start Apache and MySQL from the XAMPP control panel
+3. Open http://localhost/phpmyadmin and import, in this order:
+       database/schema.sql
+       database/seed.sql
+4. Open http://localhost/shc-gatepass/
+
+SIGN IN
+   Faculty    T261002 / staff@123
+   HOD        T261003 / hod@123
+   Security   gate01  / gate@123
+   Admin      admin   / admin@123
+   Student    BU2610A01 + the date of birth stored for that student
+
+   Find a student's date of birth with:
+       SELECT register_no, dob FROM students WHERE register_no = 'BU2610A01';
+
+TRY THE WORKFLOW
+   1. Sign in as T261002, open "Issue movement pass"
+   2. Course: CAPU102T   Programme: I BCA - Shift II
+   3. Tick a few students, press "Open form"
+   4. Choose a reason and validity, press "Approve outpass"
+   5. Sign in as gate01 in another browser - the pass is already waiting
+   6. Open it, press "Allow exit", then scan again to record the return
+
+Read README.md for everything else, including how to run without internet
+access to the CDN libraries.

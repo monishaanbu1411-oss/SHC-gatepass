@@ -1,0 +1,13 @@
+# Route every request that is not a real file through index.php
+RewriteEngine On
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# Keep application internals out of the browser
+<FilesMatch "\.(sql|log|md)$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

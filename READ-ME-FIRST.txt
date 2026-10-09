@@ -1,0 +1,20 @@
+FIX FOR: dropdowns and buttons not responding
+
+Copy these 4 files over the ones already in your project folder,
+keeping the same folder structure:
+
+  assets\js\app.js            ->  C:\xampp\htdocs\shc-gatepass\assets\js\app.js
+  views\layouts\head.php      ->  C:\xampp\htdocs\shc-gatepass\views\layouts\head.php
+  views\layouts\foot.php      ->  C:\xampp\htdocs\shc-gatepass\views\layouts\foot.php
+  views\staff\issue.php       ->  C:\xampp\htdocs\shc-gatepass\views\staff\issue.php
+
+Say yes when Windows asks to replace the existing files.
+
+Then press Ctrl+Shift+R in your browser to force a fresh reload.
+
+WHAT WAS WRONG
+The JavaScript libraries were being loaded after the page content
+instead of before it, so every screen's own script failed before it
+could attach to the dropdowns and buttons. They now load first.
+
+No database changes are needed for this fix.
